@@ -56,6 +56,7 @@ The default dashboard provided by Unraid is just too ugly, and I want to replace
 
 - [x] Scraped data from web pages using a web crawler and stored it in a database.
 - [x] Implemented basic frontend and data display.
+- [x] Increase disk usage display. 
 
 ### Planned Parts
 
