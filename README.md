@@ -68,3 +68,13 @@ The default dashboard provided by Unraid is just too ugly, and I want to replace
 
 - Control of Docker and VMs (I just want a monitoring dashboard).
 - User login and registration (I only intend to deploy it on the internal network for personal use).
+
+### How to perform customization?
+
+1. Clone the project to your local machine.
+2. Modify the parameters `UNRAID_HOST_TYPE`, `UNRAID_HOST`, `UNRAID_USERNAME`, and `UNRAID_PASSWORD` in the file `/app/utils/config.py`.
+   - `UNRAID_HOST_TYPE`: The network protocol, either http or https (0 for HTTP, 1 for HTTPS).
+   - `UNRAID_HOST`: The address of your Unraid server.
+   - `UNRAID_USERNAME`: The `username` of your Unraid server.
+   - `UNRAID_PASSWORD`: The `password` of your Unraid server.
+3. Execute python run.py.
