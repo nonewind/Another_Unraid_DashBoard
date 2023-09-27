@@ -35,7 +35,7 @@ def redirect_all_except():
 def create_app():
     # 设置返回中文
     app.config['JSON_AS_ASCII'] = False
-    logger.info(app.config)
+    # logger.info(app.config)
     logger.warning("start init UnraidApi")
     _api = UnraidApi(username=app.config['UNRAID_USERNAME'],
                      password=app.config['UNRAID_PASSWORD'],
@@ -44,7 +44,6 @@ def create_app():
     if not unraidApi:
         exit("Unraid Login Error")
     logger.warning("init UnraidApi success")
-    app.config['UNRAID_API'] = _api
     app.config['SERER_NAME'] = _api.serverName
     # 注册路由
     from .route import index, webData

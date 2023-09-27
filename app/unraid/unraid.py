@@ -23,6 +23,14 @@ class UnraidApi(object):
         self.logger = creatLogger("UnraidApi")
         self.crsfToekn = ""
 
+    def close_ws(self, ws: websocket.WebSocketApp):
+        """关闭ws连接
+
+        Args:
+            ws (_type_): _description_
+        """
+        ws.close()
+
     def upsLoad(self, type) -> websocket.WebSocketApp:
         """获取ups的负载情况
         
