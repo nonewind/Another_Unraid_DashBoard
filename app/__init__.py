@@ -32,10 +32,10 @@ def redirect_all_except():
             and not request.path.startswith('/static/')):
         return redirect('/')
 
-# 设置返回中文
-app.config['JSON_AS_ASCII'] = False
-logger.info(app.config)
 def create_app():
+    # 设置返回中文
+    app.config['JSON_AS_ASCII'] = False
+    logger.info(app.config)
     logger.warning("start init UnraidApi")
     _api = UnraidApi(username=app.config['UNRAID_USERNAME'],
                      password=app.config['UNRAID_PASSWORD'],

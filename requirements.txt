@@ -43,3 +43,4 @@ wincertstore==0.2
 wrapt==1.14.1
 zeep==4.2.1
 zipp==3.10.0
+websocket-client==1.6.3
