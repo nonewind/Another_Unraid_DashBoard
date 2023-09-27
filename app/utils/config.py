@@ -12,27 +12,10 @@ PORT = 24001
 HOST = "0.0.0.0"
 DEBUG = False
 
-## DATABASE
-DB = "sqlite" # mysql or sqlite
-
-## MYSQL
-MYSQL_HOST = "127.0.0.1"
-MYSQL_PORT = 3306
-MYSQL_USER = "root"
-MYSQL_PASS = "123"
-MYSQL_DB = "DashBoard"
-
 ## SQLLite
 DB_FILE  = "DashBoard.db"
 
-if DB == "mysql":
-    SQLALCHEMY_DATABASE_URI = f'mysql+pymysql://{MYSQL_USER}:{MYSQL_PASS}@{MYSQL_HOST}:{MYSQL_PORT}/{MYSQL_DB}'
-else:
-    SQLALCHEMY_DATABASE_URI = f'sqlite:///{DB_FILE}'
-
-# flask_SCHEDULER 的配置
-SCHEDULER_API_ENABLED = True
-SCHEDULER_TIMEZONE = 'Asia/Shanghai'
+SQLALCHEMY_DATABASE_URI = f'sqlite:///{DB_FILE}'
 
 # flask_sqlalchemy 的配置
 SQLALCHEMY_TRACK_MODIFICATIONS = True

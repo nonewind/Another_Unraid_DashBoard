@@ -34,7 +34,7 @@ def redirect_all_except():
 
 # 设置返回中文
 app.config['JSON_AS_ASCII'] = False
-
+logger.info(app.config)
 def create_app():
     logger.warning("start init UnraidApi")
     _api = UnraidApi(username=app.config['UNRAID_USERNAME'],
