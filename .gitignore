@@ -12,8 +12,6 @@ mysqlBackUp
 *.doc
 *.xls
 *.xlsx
-*.txt
-Dockerfile
 .html
 .vscode
 .pytest*
