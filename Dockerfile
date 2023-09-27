@@ -2,16 +2,14 @@ FROM python:3.9.16
 
 # Path: .DockerFile
 
-WORKDIR /App/
+WORKDIR /anthor_dashborad/
 
-COPY /requirements.txt /App/
+COPY . /anthor_dashborad/
+
+# COPY /requirements.txt /anthor_dashborad/
 
 RUN pip install -r requirements.txt
 
-COPY . /App/
+# COPY . /anthor_dashborad/
 # 初始化
-RUN flask db init
-RUN flask db migrate
-RUN flask db upgrade
-
-CMD ["python", "run.py"]
+CMD ["/bin/bash", "/anthor_dashborad/docker-entrypoint.sh"]
