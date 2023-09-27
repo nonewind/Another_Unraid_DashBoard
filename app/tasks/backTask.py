@@ -89,7 +89,13 @@ def getCpuload():
     logger.info("start getCpuload backT.ask")
     api = app.config['UNRAID_API']
     ws = api.cpuLoad(type=UNRAID_HOST_TYPE)
+    count = 0
     while True:
+        count+=1
+        # 超过100 就重置ws连接
+        if count >=100:
+            ws = api.cpuLoad(type=UNRAID_HOST_TYPE)
+            count = 0
         data = ws.recv_frame().data.decode('utf-8')
         logger.debug(f"getCpuload: {data}")
         # 处理数据 磁盘情况
