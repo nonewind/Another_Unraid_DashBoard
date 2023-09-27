@@ -6,6 +6,7 @@
 '''
 
 ## Flask Config File
+import os
 
 PORT = 24001
 HOST = "0.0.0.0"
@@ -43,10 +44,10 @@ SQLALCHEMY_ENGINE_OPTIONS = {'pool_recycle': 280, 'pool_pre_ping': True}
 ## !!warning!! 无论任何时候 都不要将用户名和密码发布到任何公众网络上！！！
 ## !!warning!! Please never disclose your username and password on any public network, regardless of the circumstances!
 
-UNRAID_HOST_TYPE = 0 # 0: http 1: https
-UNRAID_HOST = "192.168.0.15"
-UNRAID_USERNAME = "root"
-UNRAID_PASSWORD = "123"
+UNRAID_HOST_TYPE =os.getenv("UNRAID_HOST_TYPE", 0)
+UNRAID_HOST = os.getenv("UNRAID_HOST", "192.168.0.1")
+UNRAID_USERNAME = os.getenv("UNRAID_USERNAME", "root")
+UNRAID_PASSWORD = os.getenv("UNRAID_PASSWORD", "123456")
 
 
 

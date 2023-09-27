@@ -99,5 +99,10 @@ class UnraidApi(object):
             self.logger.error(f"Get crsfToekn Error: {e}")
             return False
         re_bat = r"var csrf_token = \"[\S]+?\";"
-        self.crsfToekn = re.findall(re_bat, req_session)[0].split('"')[1]
-        return True
+        re_bat_serverName = r"section[\"|']>([\S\s]+?)<br>"
+        self.serverName = re.findall(re_bat_serverName, req_session)[0]
+        try:
+            self.crsfToekn = re.findall(re_bat, req_session)[0].split('"')[1]
+            return True
+        except Exception as e:
+            return False

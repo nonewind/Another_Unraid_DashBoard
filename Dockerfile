@@ -6,10 +6,14 @@ WORKDIR /anthor_dashborad/
 
 COPY . /anthor_dashborad/
 
-# COPY /requirements.txt /anthor_dashborad/
+
 
 RUN pip install -r requirements.txt
 
-# COPY . /anthor_dashborad/
+ENV UNRAID_HOST_TYPE=0
+ENV UNRAID_HOST=192.168.0.1
+ENV UNRAID_USERNAME=root
+ENV UNRAID_PASSWORD=123
+
 # 初始化
 CMD ["/bin/bash", "/anthor_dashborad/docker-entrypoint.sh"]

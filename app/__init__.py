@@ -45,6 +45,7 @@ def create_app():
         exit("Unraid Login Error")
     logger.warning("init UnraidApi success")
     app.config['UNRAID_API'] = _api
+    app.config['SERER_NAME'] = _api.serverName
     # 注册路由
     from .route import index, webData
     app.register_blueprint(index.api_blueprint)
