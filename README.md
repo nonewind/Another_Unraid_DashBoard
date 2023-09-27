@@ -16,13 +16,31 @@ unraid的自带的面板实在是太丑了，我想换一个。市面上的监�
 - [x] 使用爬虫获取页面的数据，存入数据库
 - [x] 前端基础施工、数据展示
 - [x] 增加磁盘占用率的展示
+- [x] 使用Docker打包 让部署更加的简单
 
 ### 正在谋划的部分
 
 - [ ] 增加图表展示
 - [ ] 加入更多的数据展示
 - [ ] Docker服务监控是否在线
-- [ ] 使用Docker打包 让部署更加的简单
+
+### 开始使用
+
+1. 登录到你的unraid服务器上
+2. 打开终端
+3. 执行命令
+
+    ```bash
+    docker run -d  --name='another_unraid_dashboard' --net='bridge' \ 
+        -e 'UNRAID_HOST_TYPE'='0' \ 
+        -e 'UNRAID_HOST'='192.168.0.15' \ 
+        -e 'UNRAID_USERNAME'='unraid登录用户' \ 
+        -e 'UNRAID_PASSWORD'='unraid登陆密码' \ 
+        -p '24001:24001/tcp' \ 
+        zihengwind/another_unraid_dashboard:latest
+    ```
+
+4. 打开 `ip:24001` 即可访问
 
 ### 不会考虑的功能
 
@@ -57,13 +75,31 @@ The default dashboard provided by Unraid is just too ugly, and I want to replace
 - [x] Scraped data from web pages using a web crawler and stored it in a database.
 - [x] Implemented basic frontend and data display.
 - [x] Increase disk usage display. 
+- [x] Packaging with Docker for easier deployment.
 
 ### Planned Parts
 
 - [ ] Adding chart visualization.
 - [ ] Including more data displays.
 - [ ] Monitoring the online status of Docker services.
-- [ ] Packaging with Docker for easier deployment.
+
+### Getting Started
+
+1. Log in to your unraid server.
+2. Open the terminal.
+3. Execute the following command:
+
+    ```bash
+    docker run -d  --name='another_unraid_dashboard' --net='bridge' \ 
+        -e 'UNRAID_HOST_TYPE'='0' \ 
+        -e 'UNRAID_HOST'='unraid ip' \ 
+        -e 'UNRAID_USERNAME'='unraid login username' \ 
+        -e 'UNRAID_PASSWORD'='unraid login password' \ 
+        -p '24001:24001/tcp' \ 
+        zihengwind/another_unraid_dashboard:latest
+    ```
+
+4. Open `ip:24001` to access the dashboard.
 
 ### Excluded Features
 
