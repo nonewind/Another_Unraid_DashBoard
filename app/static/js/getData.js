@@ -101,8 +101,8 @@ $(document).ready(function () {
                 $("#Cpu_usage_pro").attr("aria-valuenow", 0);
                 $("#Cpu_usage_pro").find(".visually-hidden").text("0" + "%");
 
-                $("#upload_speed").text("ERROR");
-                $("#download_speed").text("ERROR");
+                $("#upload_speed").text("-");
+                $("#download_speed").text("-");
             }
         });
     }
@@ -113,3 +113,11 @@ $(document).ready(function () {
     // 定时器，每1秒更新数据
     setInterval(updateData, 1000);
 });
+
+// 修改表格部分
+
+// var e = document.querySelectorAll("[data-bss-chart]");
+// for (var t of e) {
+//     var chart = new Chart(t, JSON.parse(t.dataset.bssChart));
+//     t.chart = chart; // 将图表对象保存在元素的属性中，以便后续更新数据时使用
+// }
